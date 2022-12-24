@@ -11,7 +11,7 @@ use App\Http\Controllers\PerfilController;
 use App\Http\Controllers\PostController;
 use App\Http\Controllers\RegisterController;
 use Illuminate\Support\Facades\Route;
-
+use Illuminate\Support\Facades\Artisan;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -27,7 +27,9 @@ use Illuminate\Support\Facades\Route;
 //     return view('principal');
 // });
 Route::get('/', HomeController::class)->name('home');
-
+Route::get('/linkstorage', function () {
+  Artisan::call('storage:link');
+});
 // CONSEJO LAS RUTAS MAS ESPECIFICAS ARRIBA Y LA MAS DINAMICAS AL ULTIMO
 // Route::get('/crear-cuenta', function () {
 //     return view('auth.register');
